@@ -212,7 +212,7 @@ function headerView(withNav) {
   const me = S.me || {};
   const pages = withNav ? PAGES() : [];
   return `<header class="hero"><div class="rail"></div><div class="fabrics">${FABRIC.map(c => `<div class="fb" style="background-color:${c}"></div>`).join('')}</div>
-    <div class="who"><span class="nm">${esc(me.name || '')}${me.orgName ? ' · ' + esc(me.orgName) : ''}</span><span class="role ${isAdmin() ? 'admin' : 'partner'}">${isAdmin() ? 'ADMIN' : 'PARTNER'}</span></div>
+    <div class="who"><span class="nm">${esc(me.name || '')}${me.orgName ? ' · ' + esc(me.orgName) : ''}</span><span class="role ${isAdmin() ? 'admin' : 'partner'}">${isAdmin() ? 'ADMIN' : 'PARTNER'}</span>${S.me ? '<button type="button" class="lo" id="lo">로그아웃</button>' : ''}</div>
     <div class="hero-in"><div class="lk"><span class="mc">Mood Collect</span><span class="x">×</span><span class="si">SIORÉ</span></div><div class="hub">B2B PARTNER MALL</div></div></header>
     ${withNav ? `<nav class="nav"><div class="nav-in">${pages.map((p, i) => `<a data-go="${p.id}" class="${S.page === p.id ? 'on' : ''}" style="--c:${['#B5342B', '#C0561F', '#9A7019', '#5F6B32', '#2E7D78', '#2C5A8A', '#5B3A6E', '#C24A6E'][i % 8]}">${p.label}${p.badge ? `<span class="badge">${p.badge}</span>` : ''}</a>`).join('')}</div></nav>` : ''}`;
 }
